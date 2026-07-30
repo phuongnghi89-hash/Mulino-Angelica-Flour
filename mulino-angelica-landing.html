@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mulino Angelica — Mì Ý Nguyên Chất Từ Lúa Mì Cứng Sicilia</title>
+<meta name="description" content="Mì Ý Mulino Angelica - 100% Semola di Grano Duro hữu cơ, nhập khẩu trực tiếp từ Sicilia, Ý. Không hóa chất, không biến đổi gen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F3E9D2;
+    --bg-card: #FFFBF2;
+    --ink: #241C12;
+    --ink-soft: #5C4E3A;
+    --wheat: #C89B3C;
+    --wheat-dark: #93701F;
+    --majolica: #1D4E5C;
+    --majolica-light: #2E7183;
+    --rust: #BF4419;
+    --rust-dark: #973310;
+    --line: rgba(36,28,18,0.12);
+    --shadow: 0 12px 32px rgba(36,28,18,0.12);
+    --radius: 18px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:'Work Sans', sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img, svg{ display:block; max-width:100%; }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .display{ font-family:'Fraunces', serif; }
+  .mono{ font-family:'Space Mono', monospace; letter-spacing:0.04em; }
+
+  .wrap{
+    max-width:1160px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--majolica);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--majolica);
+    display:inline-block;
+  }
+
+  /* ---------- Tile divider (Sicilian majolica motif) ---------- */
+  .tile-divider{
+    height:14px;
+    width:100%;
+    background-image:
+      linear-gradient(45deg, var(--majolica) 25%, transparent 25%, transparent 75%, var(--majolica) 75%),
+      linear-gradient(45deg, var(--majolica) 25%, transparent 25%, transparent 75%, var(--majolica) 75%);
+    background-size:14px 14px;
+    background-position:0 0, 7px 7px;
+    background-color:var(--wheat);
+    opacity:0.9;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(243,233,210,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 20px;
+    max-width:1160px; margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:20px;
+  }
+  .brand .mark{
+    width:34px; height:34px;
+    border-radius:50%;
+    background:var(--majolica);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .brand .mark svg{ width:19px; height:19px; }
+  .nav-cta{
+    background:var(--rust);
+    color:#FFF7EC;
+    font-weight:600;
+    font-size:14px;
+    padding:10px 18px;
+    border-radius:999px;
+    box-shadow:0 6px 16px rgba(191,68,25,0.35);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:56px 0 40px;
+    background:
+      radial-gradient(circle at 85% -10%, rgba(200,155,60,0.35), transparent 55%),
+      var(--bg);
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:flex; flex-direction:column; gap:36px;
+  }
+  .hero-copy{ position:relative; z-index:2; }
+  .hero h1{
+    font-size:38px;
+    line-height:1.08;
+    font-weight:700;
+    margin:16px 0 18px;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--rust);
+    font-weight:600;
+  }
+  .hero p.lead{
+    font-size:16.5px;
+    color:var(--ink-soft);
+    max-width:52ch;
+    margin-bottom:26px;
+  }
+  .cta-row{ display:flex; flex-wrap:wrap; gap:14px; align-items:center; }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    gap:8px;
+    font-weight:700;
+    font-size:15.5px;
+    padding:15px 28px;
+    border-radius:999px;
+    border:none;
+    cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn-primary{
+    background:var(--rust);
+    color:#FFF7EC;
+    box-shadow:0 10px 24px rgba(191,68,25,0.38);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(191,68,25,0.45); }
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    border:1.5px solid var(--line);
+    font-weight:600;
+  }
+  .btn-ghost:hover{ border-color:var(--majolica); color:var(--majolica); }
+
+  .trust-mini{
+    display:flex; gap:18px; flex-wrap:wrap;
+    margin-top:28px;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  .trust-mini span{ display:flex; align-items:center; gap:6px; }
+  .trust-mini svg{ width:16px; height:16px; flex-shrink:0; color:var(--majolica); }
+
+  /* ---------- Product illustration + stamp ---------- */
+  .hero-art{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    z-index:1;
+  }
+  .box{
+    width:260px;
+    aspect-ratio:3/4;
+    background:linear-gradient(180deg, #FFFBF2, #F6EBD3);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .box-band{
+    position:absolute; left:0; right:0; top:0;
+    height:64px;
+    background:var(--majolica);
+    display:flex; align-items:center; justify-content:center;
+    color:#FFF7EC;
+  }
+  .box-band .mono{ font-size:11px; }
+  .box-tiles{
+    position:absolute; left:0; right:0; top:64px; height:10px;
+    background-image:linear-gradient(45deg, var(--wheat) 25%, transparent 25%, transparent 75%, var(--wheat) 75%),
+      linear-gradient(45deg, var(--wheat) 25%, transparent 25%, transparent 75%, var(--wheat) 75%);
+    background-size:10px 10px; background-position:0 0, 5px 5px;
+  }
+  .box-body{
+    position:absolute; top:90px; left:0; right:0; bottom:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:16px;
+  }
+  .box-body .display{
+    font-size:23px; font-weight:700; color:var(--ink);
+    line-height:1.15;
+  }
+  .box-body .subtitle{
+    font-size:11px; color:var(--ink-soft); margin-top:6px;
+    font-family:'Space Mono', monospace; letter-spacing:0.06em;
+  }
+  .box-wheatline{
+    margin-top:14px; width:70px;
+  }
+
+  .stamp{
+    position:absolute;
+    right:-6px; top:-14px;
+    width:112px; height:112px;
+    z-index:3;
+    animation:stamp-in .7s ease-out .3s both;
+  }
+  @keyframes stamp-in{
+    0%{ transform:scale(0.6) rotate(-30deg); opacity:0; }
+    70%{ transform:scale(1.08) rotate(-16deg); opacity:1; }
+    100%{ transform:scale(1) rotate(-12deg); opacity:1; }
+  }
+
+  /* ---------- Section titles ---------- */
+  .section{ padding:64px 0; }
+  .section-head{ max-width:640px; margin-bottom:40px; }
+  .section-head h2{
+    font-size:29px; font-weight:700; margin-top:14px; line-height:1.18;
+  }
+  .section-head p{ color:var(--ink-soft); margin-top:12px; font-size:15.5px; }
+
+  /* ---------- Benefits ---------- */
+  .benefits{ background:var(--bg-card); }
+  .benefit-grid{
+    display:grid; grid-template-columns:1fr; gap:18px;
+  }
+  .benefit-card{
+    background:#FFFFFF;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px 24px;
+    position:relative;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .benefit-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
+  .benefit-icon{
+    width:46px; height:46px;
+    border-radius:12px;
+    background:rgba(29,78,92,0.08);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:16px;
+  }
+  .benefit-icon svg{ width:24px; height:24px; color:var(--majolica); }
+  .benefit-card h3{
+    font-family:'Fraunces', serif;
+    font-size:19px; font-weight:600; margin-bottom:8px;
+  }
+  .benefit-card p{ font-size:14.5px; color:var(--ink-soft); }
+
+  .stat-strip{
+    margin-top:36px;
+    display:grid; grid-template-columns:repeat(2,1fr); gap:16px;
+  }
+  .stat{
+    background:var(--majolica);
+    color:#FFF7EC;
+    border-radius:14px;
+    padding:18px;
+    text-align:center;
+  }
+  .stat .num{ font-family:'Fraunces', serif; font-size:26px; font-weight:700; }
+  .stat .lbl{ font-size:12px; opacity:0.85; margin-top:4px; }
+
+  /* ---------- Social proof ---------- */
+  .proof{ background:var(--bg); }
+  .badge-row{
+    display:flex; flex-wrap:wrap; gap:10px;
+    margin-bottom:36px;
+  }
+  .badge{
+    display:flex; align-items:center; gap:8px;
+    font-size:12.5px; font-weight:600;
+    padding:9px 14px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:var(--bg-card);
+    color:var(--ink-soft);
+  }
+  .badge svg{ width:15px; height:15px; color:var(--wheat-dark); }
+
+  .review-track{
+    display:grid; grid-template-columns:1fr; gap:16px;
+  }
+  .review{
+    background:var(--bg-card);
+    border-radius:var(--radius);
+    padding:24px;
+    border:1px solid var(--line);
+  }
+  .stars{ color:var(--rust); font-size:15px; letter-spacing:2px; margin-bottom:10px; }
+  .review p.quote{ font-size:14.5px; color:var(--ink); margin-bottom:14px; }
+  .review-who{ display:flex; align-items:center; gap:10px; }
+  .avatar{
+    width:38px; height:38px; border-radius:50%;
+    background:var(--wheat);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-weight:700; color:#fff; font-size:15px;
+  }
+  .review-who .name{ font-size:13.5px; font-weight:600; }
+  .review-who .role{ font-size:12px; color:var(--ink-soft); }
+  .proof-note{
+    font-size:12px; color:var(--ink-soft); margin-top:18px; text-align:center;
+  }
+
+  /* ---------- Form / CTA ---------- */
+  .order{
+    background:var(--majolica);
+    color:#FFF7EC;
+    position:relative;
+    overflow:hidden;
+  }
+  .order::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:linear-gradient(45deg, rgba(255,255,255,0.04) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.04) 75%),
+      linear-gradient(45deg, rgba(255,255,255,0.04) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.04) 75%);
+    background-size:34px 34px; background-position:0 0, 17px 17px;
+    pointer-events:none;
+  }
+  .order .wrap{ position:relative; z-index:1; }
+  .order-head{ max-width:520px; margin-bottom:32px; }
+  .order-head .eyebrow{ color:#F3E9D2; }
+  .order-head .eyebrow::before{ background:#F3E9D2; }
+  .order-head h2{ color:#FFF7EC; font-size:28px; margin-top:14px; }
+  .order-head p{ color:rgba(255,247,236,0.8); margin-top:12px; font-size:15px; }
+
+  form{
+    background:#FFFBF2;
+    color:var(--ink);
+    border-radius:var(--radius);
+    padding:26px;
+    box-shadow:var(--shadow);
+    display:grid; gap:16px;
+  }
+  .field label{
+    display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--ink-soft);
+  }
+  .field input, .field select{
+    width:100%;
+    padding:13px 14px;
+    border-radius:10px;
+    border:1.5px solid var(--line);
+    background:#fff;
+    font-family:'Work Sans', sans-serif;
+    font-size:14.5px;
+    color:var(--ink);
+    outline:none;
+    transition:border-color .15s ease;
+  }
+  .field input:focus, .field select:focus{ border-color:var(--majolica); }
+  .field.error input, .field.error select{ border-color:var(--rust); }
+  .field .err-msg{ font-size:12px; color:var(--rust); margin-top:5px; display:none; }
+  .field.error .err-msg{ display:block; }
+
+  .row2{ display:grid; grid-template-columns:1fr; gap:16px; }
+
+  .submit-btn{
+    width:100%;
+    background:var(--rust);
+    color:#FFF7EC;
+    font-weight:700;
+    font-size:16px;
+    padding:16px;
+    border-radius:12px;
+    border:none;
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .submit-btn:hover{ transform:translateY(-2px); background:var(--rust-dark); }
+  .submit-btn:active{ transform:translateY(0); }
+
+  .form-foot{
+    font-size:12px; color:var(--ink-soft); text-align:center;
+  }
+
+  .success-msg{
+    display:none;
+    background:#E9F3E6;
+    border:1px solid #9DC98F;
+    color:#2A5A20;
+    padding:16px;
+    border-radius:12px;
+    font-size:14px;
+    align-items:center;
+    gap:10px;
+  }
+  .success-msg.show{ display:flex; }
+  .success-msg svg{ width:20px; height:20px; flex-shrink:0; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--ink);
+    color:#E8DCC4;
+    padding:48px 0 24px;
+  }
+  .foot-grid{
+    display:grid; grid-template-columns:1fr; gap:32px;
+    margin-bottom:32px;
+  }
+  .foot-brand{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .foot-brand .mark{
+    width:32px; height:32px; border-radius:50%;
+    background:var(--wheat);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .foot-brand .mark svg{ width:17px; height:17px; color:var(--ink); }
+  .foot-brand span{ font-family:'Fraunces', serif; font-weight:700; font-size:18px; color:#FFF7EC; }
+  footer p.tag{ font-size:13.5px; color:#B7A886; max-width:40ch; margin-bottom:6px; }
+  footer h4{ font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:#B7A886; margin-bottom:14px; }
+  footer ul{ list-style:none; display:grid; gap:10px; }
+  footer ul li a{ font-size:14px; color:#E8DCC4; }
+  footer ul li a:hover{ color:var(--wheat); }
+  .foot-bottom{
+    border-top:1px solid rgba(232,220,196,0.15);
+    padding-top:20px;
+    display:flex; flex-direction:column; gap:8px;
+    font-size:12px; color:#8C7C5E;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (min-width: 720px){
+    .hero .wrap{ flex-direction:row; align-items:center; }
+    .hero-copy{ flex:1.1; }
+    .hero-art{ flex:1; }
+    .hero h1{ font-size:46px; }
+    .benefit-grid{ grid-template-columns:repeat(2,1fr); }
+    .stat-strip{ grid-template-columns:repeat(4,1fr); }
+    .review-track{ grid-template-columns:repeat(3,1fr); }
+    .row2{ grid-template-columns:1fr 1fr; }
+    .foot-grid{ grid-template-columns:1.4fr 1fr 1fr; }
+  }
+  @media (min-width: 1000px){
+    .hero h1{ font-size:52px; }
+    .benefit-grid{ grid-template-columns:repeat(4,1fr); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+    html{ scroll-behavior:auto; }
+  }
+
+  :focus-visible{ outline:2.5px solid var(--majolica); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F3E9D2" stroke-width="1.8"><path d="M12 3c-1 3-3 4-3 7a3 3 0 0 0 6 0c0-3-2-4-3-7z"/><path d="M12 13v8"/></svg>
+      </span>
+      Mulino Angelica
+    </div>
+    <a href="#order" class="nav-cta">Đặt Mua</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">Nhập khẩu trực tiếp từ Ý</div>
+      <h1 class="display">Sợi mì được sinh ra<br>từ <em>nắng Sicilia</em></h1>
+      <p class="lead">Mulino Angelica xay 100% <strong>grano duro</strong> — lúa mì cứng hữu cơ trồng trên đất núi lửa Sicilia. Không hóa chất, không biến đổi gen, giữ nguyên dưỡng chất tự nhiên cho từng bữa ăn của gia đình bạn.</p>
+      <div class="cta-row">
+        <a href="#order" class="btn btn-primary">
+          Đặt Mua Ngay
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#loi-ich" class="btn btn-ghost">Xem lợi ích sản phẩm</a>
+      </div>
+      <div class="trust-mini">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>100% Organic</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Không biến đổi gen</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Giao hàng toàn quốc</span>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="box">
+        <div class="box-band"><span class="mono">SEMOLA DI GRANO DURO</span></div>
+        <div class="box-tiles"></div>
+        <div class="box-body">
+          <div class="display">Mulino<br>Angelica</div>
+          <div class="subtitle">SICILIA · ITALIA</div>
+          <svg class="box-wheatline" viewBox="0 0 80 16" fill="none" stroke="var(--wheat-dark)" stroke-width="1.4">
+            <path d="M2 8h76M14 8c0-4 4-4 4-8M26 8c0-4 4-4 4-8M38 8c0-4 4-4 4-8M50 8c0-4 4-4 4-8M62 8c0-4 4-4 4-8"/>
+          </svg>
+        </div>
+      </div>
+
+      <svg class="stamp" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="56" fill="none" stroke="var(--rust)" stroke-width="3"/>
+        <circle cx="60" cy="60" r="47" fill="none" stroke="var(--rust)" stroke-width="1.4" stroke-dasharray="3 4"/>
+        <path id="stamp-arc-top" d="M 16 60 A 44 44 0 0 1 104 60" fill="none"/>
+        <path id="stamp-arc-bottom" d="M 104 62 A 44 44 0 0 1 16 62" fill="none"/>
+        <text font-family="Space Mono, monospace" font-size="8.6" fill="var(--rust)" letter-spacing="1">
+          <textPath href="#stamp-arc-top" startOffset="50%" text-anchor="middle">100% GRANO DURO</textPath>
+        </text>
+        <text font-family="Space Mono, monospace" font-size="8.6" fill="var(--rust)" letter-spacing="1">
+          <textPath href="#stamp-arc-bottom" startOffset="50%" text-anchor="middle">SICILIA · ITALIA</textPath>
+        </text>
+        <path d="M60 40c-1.5 4.5-4.5 6-4.5 10.5a4.5 4.5 0 0 0 9 0c0-4.5-3-6-4.5-10.5z" fill="var(--rust)"/>
+        <path d="M50 74h20M55 74c0-3 2.5-3 2.5-6M65 74c0-3-2.5-3-2.5-6" stroke="var(--rust)" stroke-width="1.6" fill="none"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="tile-divider"></div>
+
+<section class="section benefits" id="loi-ich">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Vì sao chọn Mulino Angelica</div>
+      <h2 class="display">Bốn cam kết từ vựa lúa mì Sicilia</h2>
+      <p>Mỗi lô mì đều được truy xuất từ cánh đồng đến bao bì — không có bước trung gian nào làm mất đi chất lượng nguyên bản.</p>
+    </div>
+
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C9 8 5 10 5 15a7 7 0 0 0 14 0c0-5-4-7-7-13z"/></svg>
+        </div>
+        <h3>100% Grano Duro Sicilia</h3>
+        <p>Xay hoàn toàn từ lúa mì cứng trồng tại vùng đất núi lửa Sicilia — nơi cho hạt lúa mì giàu gluten và hương vị đậm đà tự nhiên.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M5 8l7-5 7 5M5 8v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"/></svg>
+        </div>
+        <h3>Chuẩn Hữu Cơ Organic</h3>
+        <p>Canh tác không thuốc trừ sâu, không phân bón hóa học — đúng theo tiêu chuẩn hữu cơ châu Âu ngay từ khâu gieo trồng.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4.5 8-11.8V5l-8-3-8 3v5.2C4 17.5 12 22 12 22z"/></svg>
+        </div>
+        <h3>Không Biến Đổi Gen</h3>
+        <p>Giống lúa mì thuần chủng, không can thiệp gen — an toàn cho sức khỏe cả gia đình về lâu dài.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h13l4 5v5h-3M3 7v10h11M3 7l4-4h9l4 4"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg>
+        </div>
+        <h3>Nhập Khẩu Trực Tiếp Từ Ý</h3>
+        <p>Đưa thẳng từ nhà máy xay tại Sicilia về Việt Nam, mỗi lô hàng có mã lô và tem nhập khẩu để bạn dễ dàng truy xuất nguồn gốc.</p>
+      </div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat"><div class="num">100%</div><div class="lbl">Grano duro nguyên chất</div></div>
+      <div class="stat"><div class="num">0</div><div class="lbl">Hóa chất bảo quản</div></div>
+      <div class="stat"><div class="num">Cao</div><div class="lbl">Hàm lượng protein tự nhiên</div></div>
+      <div class="stat"><div class="num">Thấp</div><div class="lbl">Chỉ số đường huyết (GI)</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="tile-divider"></div>
+
+<section class="section proof">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Khách hàng nói gì</div>
+      <h2 class="display">Được tin dùng bởi người nội trợ và đầu bếp gia đình</h2>
+    </div>
+
+    <div class="badge-row">
+      <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Chuẩn Hữu Cơ Châu Âu</span>
+      <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>Non-GMO</span>
+      <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h13l4 5v5h-3M3 7v10h11"/></svg>Made in Italy</span>
+      <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Nhập khẩu chính ngạch</span>
+    </div>
+
+    <div class="review-track">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Sợi mì dai vừa, nấu xong không bị nát. Cả nhà mình chuyển hẳn sang dùng loại này vì yên tâm về nguồn gốc.</p>
+        <div class="review-who">
+          <div class="avatar">L</div>
+          <div><div class="name">Chị Lan</div><div class="role">Nội trợ, TP.HCM</div></div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Mình hay làm bánh và nấu ăn cho gia đình, mì này giữ được vị lúa mì tự nhiên, không cần nêm nhiều mà vẫn đậm đà.</p>
+        <div class="review-who">
+          <div class="avatar">M</div>
+          <div><div class="name">Anh Minh</div><div class="role">Đầu bếp gia đình</div></div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Thành phần rõ ràng, không chất bảo quản. Mình yên tâm cho con ăn thường xuyên hơn các loại mì thông thường.</p>
+        <div class="review-who">
+          <div class="avatar">H</div>
+          <div><div class="name">Chị Hương</div><div class="role">Quan tâm dinh dưỡng gia đình</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="proof-note">Đánh giá minh họa từ khách hàng đã trải nghiệm sản phẩm.</p>
+  </div>
+</section>
+
+<section class="section order" id="order">
+  <div class="wrap">
+    <div class="order-head">
+      <div class="eyebrow">Đặt hàng</div>
+      <h2 class="display">Mang cả Sicilia vào bữa ăn gia đình bạn</h2>
+      <p>Điền thông tin bên dưới, đội ngũ Mulino Angelica sẽ liên hệ xác nhận đơn hàng trong 30 phút.</p>
+    </div>
+
+    <form id="order-form" novalidate>
+      <div class="success-msg" id="success-msg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>Cảm ơn bạn! Đơn hàng đã được ghi nhận, chúng tôi sẽ gọi xác nhận sớm.</span>
+      </div>
+
+      <div class="row2">
+        <div class="field" id="field-name">
+          <label for="name">Họ và tên</label>
+          <input type="text" id="name" name="name" placeholder="Nguyễn Văn A" autocomplete="name">
+          <div class="err-msg">Vui lòng nhập họ tên của bạn.</div>
+        </div>
+        <div class="field" id="field-phone">
+          <label for="phone">Số điện thoại</label>
+          <input type="tel" id="phone" name="phone" placeholder="09xx xxx xxx" autocomplete="tel">
+          <div class="err-msg">Vui lòng nhập số điện thoại hợp lệ (10 số).</div>
+        </div>
+      </div>
+
+      <div class="field" id="field-address">
+        <label for="address">Địa chỉ giao hàng</label>
+        <input type="text" id="address" name="address" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành" autocomplete="street-address">
+        <div class="err-msg">Vui lòng nhập địa chỉ giao hàng.</div>
+      </div>
+
+      <div class="field">
+        <label for="qty">Số lượng</label>
+        <select id="qty" name="qty">
+          <option value="1">1 gói — dùng thử</option>
+          <option value="3" selected>3 gói — tiết kiệm hơn</option>
+          <option value="5">5 gói — dùng cho cả tháng</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn">Xác Nhận Đặt Hàng</button>
+      <p class="form-foot">Miễn phí vận chuyển cho đơn từ 3 gói · Thanh toán khi nhận hàng (COD)</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8"><path d="M12 3c-1 3-3 4-3 7a3 3 0 0 0 6 0c0-3-2-4-3-7z"/><path d="M12 13v8"/></svg>
+          </span>
+          <span>Mulino Angelica</span>
+        </div>
+        <p class="tag">Mì Ý nguyên chất từ 100% lúa mì cứng hữu cơ Sicilia, nhập khẩu trực tiếp từ Ý cho bữa ăn an toàn của gia đình bạn.</p>
+      </div>
+      <div>
+        <h4>Liên hệ</h4>
+        <ul>
+          <li><a href="tel:19001234">Hotline: 1900 1234</a></li>
+          <li><a href="mailto:hello@mulinoangelica.vn">hello@mulinoangelica.vn</a></li>
+          <li><a href="#">Q.1, TP. Hồ Chí Minh</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sản phẩm</h4>
+        <ul>
+          <li><a href="#loi-ich">Lợi ích sản phẩm</a></li>
+          <li><a href="#order">Đặt mua</a></li>
+          <li><a href="#">Chính sách đổi trả</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Mulino Angelica. Sản phẩm nhập khẩu trực tiếp từ Sicilia, Ý.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const form = document.getElementById('order-form');
+  const successMsg = document.getElementById('success-msg');
+
+  const fields = {
+    name: { el: document.getElementById('name'), wrap: document.getElementById('field-name'),
+      validate: v => v.trim().length >= 2 },
+    phone: { el: document.getElementById('phone'), wrap: document.getElementById('field-phone'),
+      validate: v => /^[0-9]{9,11}$/.test(v.replace(/\s|\.|-/g, '')) },
+    address: { el: document.getElementById('address'), wrap: document.getElementById('field-address'),
+      validate: v => v.trim().length >= 6 }
+  };
+
+  function setError(key, hasError){
+    fields[key].wrap.classList.toggle('error', hasError);
+  }
+
+  Object.keys(fields).forEach(key => {
+    fields[key].el.addEventListener('input', () => {
+      if (fields[key].wrap.classList.contains('error')) {
+        setError(key, !fields[key].validate(fields[key].el.value));
+      }
+    });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    let valid = true;
+    Object.keys(fields).forEach(key => {
+      const ok = fields[key].validate(fields[key].el.value);
+      setError(key, !ok);
+      if (!ok) valid = false;
+    });
+
+    if (!valid) {
+      const firstError = form.querySelector('.field.error input');
+      if (firstError) firstError.focus();
+      return;
+    }
+
+    successMsg.classList.add('show');
+    form.querySelectorAll('input').forEach(i => i.value = '');
+    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    setTimeout(() => successMsg.classList.remove('show'), 6000);
+  });
+})();
+</script>
+
+</body>
+</html>
